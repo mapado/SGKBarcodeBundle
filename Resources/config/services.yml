@@ -1,10 +1,10 @@
 services:
     sgk_barcode.generator:
-        class: SGK\BarcodeBundle\Generator\Generator
+        class: "SGK\\BarcodeBundle\\Generator\\Generator"
 
     sgk_barcode.twig.extension:
-        class: SGK\BarcodeBundle\Twig\Extensions\Barcode
+        class: "SGK\\BarcodeBundle\\Twig\\Extensions\\Barcode"
         arguments:
-            - @sgk_barcode.generator
+            - "@sgk_barcode.generator"
         tags:
-            - { name: twig.extension }
+            - { name: "twig.extension" }
