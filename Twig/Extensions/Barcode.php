@@ -2,9 +2,9 @@
 
 namespace SGK\BarcodeBundle\Twig\Extensions;
 
+use SGK\BarcodeBundle\Generator\Generator;
 use Twig_Extension;
 use Twig_SimpleFunction;
-use SGK\BarcodeBundle\Generator\Generator;
 
 /**
  * Class Project_Twig_Extension
@@ -39,13 +39,5 @@ class Barcode extends Twig_Extension
                 }
             ),
         );
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'barcode';
     }
 }

@@ -30,7 +30,7 @@
     "symfony/dependency-injection": "^2.7 || ^3.0",
     "symfony/http-kernel": "^2.7 || ^3.0",
     "symfony/options-resolver": "^2.7 || ^3.0",
-    "twig/twig": "^1.18 || ^2.0"
+    "twig/twig": "^1.26 || ^2.0"
   },
   "suggest": {
     "symfony/twig-bundle": "^2.7 || ^3.0"
