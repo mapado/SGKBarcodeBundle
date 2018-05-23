@@ -1,7 +1,16 @@
+sudo: false
 language: php
-php:
-  - "5.5"
-  - "5.4"
-  - "5.3"
 
-install: composer install
+matrix:
+    include:
+        - php: 7.2
+          env: SCENARIO=symfony4
+        - php: 7.2
+          env: SCENARIO=symfony3
+        - php: 7.2
+          env: SCENARIO=symfony2
+
+        - php: 7.1
+
+install:
+    - composer install
