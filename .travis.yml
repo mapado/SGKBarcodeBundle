@@ -4,9 +4,12 @@ language: php
 matrix:
     include:
         - php: 7.2
-          env: SCENARIO=symfony2
+          env: SCENARIO=symfony4
         - php: 7.2
           env: SCENARIO=symfony3
+        - php: 7.2
+          env: SCENARIO=symfony2
+
         - php: 7.1
 
 install:
