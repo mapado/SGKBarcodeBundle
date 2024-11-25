@@ -3,15 +3,14 @@
 namespace SGK\BarcodeBundle\Twig\Extensions;
 
 use SGK\BarcodeBundle\Generator\Generator;
-use Twig_Extension;
-use Twig_SimpleFunction;
-
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 /**
  * Class Project_Twig_Extension
  *
  * @package SGK\BarcodeBundle\Twig\Extensions
  */
-class Barcode extends Twig_Extension
+class Barcode extends AbstractExtension
 {
     /**
      * @var Generator
@@ -32,7 +31,7 @@ class Barcode extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction(
+            new TwigFunction(
                 'barcode',
                 function ($options = array()) {
                     echo $this->generator->generate($options);
