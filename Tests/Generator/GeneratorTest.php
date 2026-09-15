@@ -2,20 +2,15 @@
 
 namespace SGK\BarcodeBundle\Tests\Generator;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\TestCase;
 use SGK\BarcodeBundle\Generator\Generator;
 
-/**
- * Class GeneratorTest
- *
- * @package SGK\BarcodeBundle\Tests\Generator
- */
+#[Medium]
 class GeneratorTest extends TestCase
 {
-    /**
-     * @return array
-     */
-    public function getOptions()
+    public static function getOptions(): array
     {
         return array(
             array(
@@ -48,23 +43,15 @@ class GeneratorTest extends TestCase
         );
     }
 
-    /**
-     * testGenerate
-     *
-     * @param array $options
-     *
-     * @medium
-     *
-     * @dataProvider getOptions
-     */
-    public function testGenerate($options = array())
+    #[DataProvider('getOptions')]
+    public function testGenerate(array $options): void
     {
         $generator = new Generator();
 
         $this->assertTrue(is_string($generator->generate($options)));
     }
 
-    public function testGenerateNoRandom()
+    public function testGenerateNoRandom(): void
     {
         $generator = new Generator();
 
@@ -74,16 +61,12 @@ class GeneratorTest extends TestCase
             'type' => 'qrcode',
         ];
 
-        $expected['701'] = 'iVBORw0KGgoAAAANSUhEUgAAAGkAAABpAQMAAAADTJ95AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAPdJREFUOI2tlDsSgzAMRMVQuORI3CzQ5VrMcBF8A5cUnigrgS3SRQYVDI9Cn9UiYkQKkVd5mek+csFM1AP3PhENXhx5Tcgij4rxMQwRhVrxtysahydQxsfk60WNf1Flz0h12cId5LpBDUi3kMW/iLFYA1Ma7lMT8oE8jzJv3OUb9ejQjefyVs4HygK2YRFNyYuqVUkFl7yw1VLIi9O5hSiydzAckrZjJ83FssHcoZoK4cLDGx1au1hFMPDQgmiIk10G4EeqkRPPy8DnkRHMI7zRiOorw6BWqYVcqGZ4WyGCVUL92V2oqewyqIF5I/KhWRS2nQ1T8OIXb3CHNDT2608AAAAASUVORK5CYII=';
-        $expected['702'] = 'iVBORw0KGgoAAAANSUhEUgAAAGkAAABpAQMAAAADTJ95AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAPdJREFUOI2tlDsSgzAMRMVQuORI3CzQ5VrMcBF8A5cUnigrgS3SRQYVDI9Cn9UiYkQKkVd5mek+csFM1AP3PhENXhx5Tcgij4rxMQwRhVrxtysahydQxsfk60WNf1Flz0h12cId5LpBDUi3kMW/iLFYA1Ma7lMT8oE8jzJv3OUb9ejQjefyVs4HygK2YRFNyYuqVUkFl7yw1VLIi9O5hSiydzAckrZjJ83FssHcoZoK4cLDGx1au1hFMPDQgmiIk10G4EeqkRPPy8DnkRHMI7zRiOorw6BWqYVcqGZ4WyGCVUL92V2oqewyqIF5I/KhWRS2nQ1T8OIXb3CHNDT2608AAAAASUVORK5CYII=';
+        $expected = 'iVBORw0KGgoAAAANSUhEUgAAAGkAAABpAQMAAAADTJ95AAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAPdJREFUOI2tlDsSgzAMRMVQuORI3CzQ5VrMcBF8A5cUnigrgS3SRQYVDI9Cn9UiYkQKkVd5mek+csFM1AP3PhENXhx5Tcgij4rxMQwRhVrxtysahydQxsfk60WNf1Flz0h12cId5LpBDUi3kMW/iLFYA1Ma7lMT8oE8jzJv3OUb9ejQjefyVs4HygK2YRFNyYuqVUkFl7yw1VLIi9O5hSiydzAckrZjJ83FssHcoZoK4cLDGx1au1hFMPDQgmiIk10G4EeqkRPPy8DnkRHMI7zRiOorw6BWqYVcqGZ4WyGCVUL92V2oqewyqIF5I/KhWRS2nQ1T8OIXb3CHNDT2608AAAAASUVORK5CYII=';
 
-        $this->assertEquals($expected[mb_substr(PHP_VERSION_ID, 0, 3)], $generator->generate($options));
+        $this->assertSame($expected, $generator->generate($options));
     }
 
-    /**
-     * @return array
-     */
-    public function getErrorOptions()
+    public static function getErrorOptions(): array
     {
         return array(
             array(
@@ -126,19 +109,11 @@ class GeneratorTest extends TestCase
         );
     }
 
-    /**
-     * testConfigureOptions
-     *
-     * @param array $options
-     *
-     * @medium
-     *
-     * @dataProvider getErrorOptions
-     *
-     * @expectedException \Exception
-     */
-    public function testConfigureOptions($options = array())
+    #[DataProvider('getErrorOptions')]
+    public function testConfigureOptions(array $options): void
     {
+        $this->expectException(\Exception::class);
+
         $generator = new Generator();
 
         $generator->generate($options);

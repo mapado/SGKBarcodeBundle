@@ -5,20 +5,12 @@ namespace SGK\BarcodeBundle\Tests\Type;
 use PHPUnit\Framework\TestCase;
 use SGK\BarcodeBundle\Type\Type;
 
-/**
- * Class TypeTest
- *
- * @package SGK\BarcodeBundle\Tests\Type
- */
 class TypeTest extends TestCase
 {
-    /**
-     * testConfigureOptions
-     *
-     * @expectedException \InvalidArgumentException
-     */
-    public function testInvalidArgumentException()
+    public function testInvalidArgumentException(): void
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $type = new Type();
         $type->getDimension('Unknown Type');
     }

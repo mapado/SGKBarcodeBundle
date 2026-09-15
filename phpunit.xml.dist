@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/13.3/phpunit.xsd"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
-         syntaxCheck="false"
          bootstrap="Tests/bootstrap.php"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         checkForUnintentionallyCoveredCode="true"
          beStrictAboutOutputDuringTests="true"
-         beStrictAboutTestSize="true"
         >
     <testsuites>
         <testsuite name="SGKBarcodeBundle Test Suite">
@@ -21,16 +12,15 @@
         </testsuite>
     </testsuites>
 
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./DependencyInjection</directory>
-                <directory>./DineshBarcode</directory>
-                <directory>./Resources</directory>
-                <directory>./Tests</directory>
-                <directory>./Twig</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+    <source>
+        <include>
+            <directory>./src</directory>
+        </include>
+        <exclude>
+            <directory>./src/DependencyInjection</directory>
+            <directory>./src/DineshBarcode</directory>
+            <directory>./src/Resources</directory>
+            <directory>./src/Twig</directory>
+        </exclude>
+    </source>
 </phpunit>
