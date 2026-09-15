@@ -1,9 +1,9 @@
 # CHANGELOG
 
 ## Unreleased
-- Require PHP 8.1 and allow Symfony 7 components
+- Require PHP 8.4 and allow Symfony 7 components
 - Extend `Symfony\Component\DependencyInjection\Extension\Extension` instead of the HttpKernel one
-- Rewrite `phpunit.xml.dist` for PHPUnit 9
+- Upgrade PHPUnit to 13: `phpunit.xml.dist` rewritten, tests use attributes and `expectException()`
 
 ## 1.0.0
 - upgrade twig version
