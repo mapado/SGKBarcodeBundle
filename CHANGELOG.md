@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## 2.2.0
 - Allow Symfony 8, drop Symfony < 7.4, and remove the test scenarios tooling (`g-1-a/composer-test-scenarios`, `.travis.yml`)
 
 ## 2.1.0
