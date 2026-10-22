@@ -46,15 +46,10 @@
     "symfony/twig-bundle": "^7.4 || ^8.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^13.0",
-    "g-1-a/composer-test-scenarios": "^2.0"
+    "phpunit/phpunit": "^13.0"
   },
   "minimum-stability": "stable",
   "scripts": {
-    "test": "phpunit",
-    "scenario": "scenarios/install",
-    "post-update-cmd": [
-      "dependency-licenses"
-    ]
+    "test": "phpunit"
   }
 }
